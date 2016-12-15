@@ -4,6 +4,9 @@
   <% @tag.each do |tags| %>
     <li>
       <%= link_to tags, tag_path(tags) %>
+      <% if logged_in? %>
+        <%= link_to "delete", tag_path(tags), method: :delete, data: {confirm: "Really delete the tag?"} %>
+      <% end %>
     </li>
   <% end %>
 </ul>
